@@ -5,17 +5,17 @@ namespace Treats\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Treats\Models\Categories;
+use Treats\Models\Product;
 
-class Products extends Model {
+class Order extends Model {
 
   protected $hidden    = [ 'created_at', 'updated_at' ];
   protected $guarded   = [ 'id' ];
 
-  public function category() {
+  public function products() {
 
-    return $this->belongsTo( Categories::class );
+    return $this->belongsToMany( Product::class );
 
-  } // category
+  } // products
 
-} // Products
+} // Order
