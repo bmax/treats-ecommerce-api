@@ -9,7 +9,7 @@ use Treats\Models\Categorey;
 
 class Product extends Model {
 
-  protected $hidden    = [ 'created_at', 'updated_at' ];
+  protected $hidden    = [ 'created_at', 'updated_at', 'pivot' ];
   protected $guarded   = [ 'id' ];
 
   public function category() {

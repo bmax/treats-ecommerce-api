@@ -17,8 +17,12 @@ use Illuminate\Http\Request;
 Route::get( 'status', 'StatusController@index' );
 Route::get( 'products', 'ProductsController@list' );
 Route::get( 'product/{id}', 'ProductsController@get' );
+Route::get( 'orders', 'OrdersController@list' );
+Route::get( 'order/{id}', 'OrdersController@get' );
 
 // POSTS
 Route::post( 'auth', 'Auth\LoginController@store' );
+Route::post( 'user/create', 'Auth\UserController@store' );
 Route::post( 'register', 'Auth\RegisterController@store' );
 Route::post( 'product', 'ProductsController@store' );
+Route::post( 'order/{id}/charge', 'OrdersController@charge' );

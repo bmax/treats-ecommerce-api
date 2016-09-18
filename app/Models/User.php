@@ -5,9 +5,12 @@ namespace Treats\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Cashier\Billable;
 use Treats\Models\User;
 
 class User extends Model {
+
+  use Billable;
 
   /**
    * The attributes that are mass assignable.
@@ -15,7 +18,7 @@ class User extends Model {
    * @var array
    */
   protected $fillable = [
-      'name', 'email', 'password',
+      'first_name', 'last_name', 'email', 'password', 'address', 'city', 'state', 'country', 'zip'
   ];
 
   /**
