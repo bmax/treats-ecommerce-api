@@ -7,7 +7,7 @@ use Treats\Http\Requests;
 use Treats\Http\Requests\ProductsRequest;
 use Treats\Models\Product;
 
-class ProductsController extends BaseAuthenticatedController {
+class ProductsController extends Controller {
 
   public function list( $params = null ) {
 
@@ -23,7 +23,7 @@ class ProductsController extends BaseAuthenticatedController {
 
   public function store( ProductsRequest $request ) {
 
-    $name       = $request->input( 'name' );
+    $name        = $request->input( 'name' );
     $sku         = $request->input( 'sku' );
     $desc        = $request->input( 'description' );
     $category_id = $request->input( 'category_id' );

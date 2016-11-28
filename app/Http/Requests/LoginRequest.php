@@ -41,7 +41,7 @@ class LoginRequest extends FormRequest {
    */
   public function response( array $errors ) {
 
-      return new JsonResponse( array_merge( [ 'error' => 'validation' ], $errors ), 422 );
+      return new JsonResponse( array_merge( [ 'error' => 'validation' ], [ 'errors' => $errors ] ), 422 );
 
   } // response
 

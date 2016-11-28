@@ -23,6 +23,5 @@ Route::get( 'order/{id}', 'OrdersController@get' );
 // POSTS
 Route::post( 'auth', 'Auth\LoginController@store' );
 Route::post( 'user/create', 'Auth\UserController@store' );
-Route::post( 'register', 'Auth\RegisterController@store' );
 Route::post( 'product', 'ProductsController@store' );
 Route::post( 'order/{id}/charge', 'OrdersController@charge' );

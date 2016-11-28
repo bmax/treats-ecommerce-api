@@ -26,11 +26,7 @@ class OrdersController extends BaseAuthenticatedController {
     $user = $this->_getUser();
     $order = Order::find( $id );
 
-    if ( !$user->braintree_id ) {
-      $user->createAsBraintreeCustomer( \Braintree_ClientToken::generate(), [ 'paymentMethodNonce' => 'fake-valid-nonce' ] );
-    }
-
-    return $this->_response( $user->charge( $order->total ) );
+    return $this->_response( $user->charge( 5, [ 'storeInVault' => true ] ) );
 
   } // charge
 

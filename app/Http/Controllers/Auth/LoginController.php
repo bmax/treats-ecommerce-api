@@ -25,8 +25,12 @@ class LoginController extends Controller {
     if ( !$auth_token ) {
       return $this->_responseError( 'Invalid login', 401 );
     }
+    $braintree_id_config = $user->braintree_id ? [
+      "customerId" => $user->braintree_id
+    ] : null;
+    $client_token = \Braintree_ClientToken::generate( $braintree_id_config );
 
-    return $this->_response( array_merge( $user->toArray(), [ 'authorization_token' => $auth_token ] ) );
+    return $this->_response( $user->toArrayWithAuthTokenAndClientToken( $auth_token, $client_token ) );
 
   } // store
 

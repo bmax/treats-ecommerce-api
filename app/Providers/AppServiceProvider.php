@@ -2,7 +2,10 @@
 
 namespace Treats\Providers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
+use Treats\Http\Kernel;
+use Treats\Http\Middleware\Cors;
 
 class AppServiceProvider extends ServiceProvider {
 
@@ -11,7 +14,7 @@ class AppServiceProvider extends ServiceProvider {
      *
      * @return void
      */
-    public function boot() {
+    public function boot( Request $request, Kernel $kernel ) {
 
         \Braintree_Configuration::environment( config( 'services.braintree.environment' ) );
         \Braintree_Configuration::merchantId(  config( 'services.braintree.merchant_id' ) );

@@ -140,6 +140,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        Treats\Providers\AppServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -173,7 +174,6 @@ return [
         /*
          * Application Service Providers...
          */
-        Treats\Providers\AppServiceProvider::class,
         // Treats\Providers\BroadcastServiceProvider::class,
         Treats\Providers\AuthServiceProvider::class,
         Treats\Providers\EventServiceProvider::class,

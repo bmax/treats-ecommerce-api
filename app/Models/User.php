@@ -36,6 +36,12 @@ class User extends Model {
 
   } // findUserByAuthToken
 
+  public function toArrayWithAuthTokenAndClientToken( string $auth_token, string $client_token ) {
+
+    return array_merge( $this->toArray(), [ 'authorization_token' => $auth_token, 'braintree_token' => $client_token ] );
+
+  } // findUserByAuthToken
+
   public static function findUserByEmail( string $email ) {
 
     return self::where( 'email', $email )->first();
